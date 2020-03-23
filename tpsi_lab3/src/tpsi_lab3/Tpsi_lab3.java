@@ -74,6 +74,7 @@ public class Tpsi_lab3 {
         przedmiotProwadzacy.put("MPIS",t3);
         przedmiotProwadzacy.put("ASK",t4);
         
+        System.out.println();
         System.out.println("Nauczyciel prowadzacy programowanie obiektowe to: "+przedmiotProwadzacy.get("programowanie obiektowe"));
         
         List<Student> grupa32 = new ArrayList<>();
@@ -96,6 +97,7 @@ public class Tpsi_lab3 {
         grupyStudentow.put(35, grupa35);
         
         List<Student> tempGroup = grupyStudentow.get(32);
+        System.out.println();
         System.out.println("Uczniowie w grupie 32");
         for(Student student : tempGroup) {
             System.out.println(student.getFirstName()+" "+student.getLastName());
@@ -119,7 +121,8 @@ public class Tpsi_lab3 {
             ex.printStackTrace();
             }
         
-        //test 1
+        System.out.println();
+        System.out.println("Test 1");
         for(Product p : produkty){
             System.out.println(p.id+"\t"+ p.name+"\t"+p.category+"\t"+p.price);
         }
@@ -129,9 +132,28 @@ public class Tpsi_lab3 {
             mapID.put(Integer.parseInt(prod.id), prod);
         }
         
-        //test 2
+        System.out.println();
+        System.out.println("Test 2");
         System.out.println(mapID.get(101).name);
         
         
+        Set<String> uniqueCats = new HashSet();
+        for(Product p : produkty){
+            uniqueCats.add(p.category);
+        }
+        
+        Map<String,List<Product>> mapCat = new HashMap();
+        for(String s : uniqueCats){
+            mapCat.put(s,new ArrayList());
+        }
+        
+        for(Product p : produkty){
+            mapCat.get(p.category).add(p);
+        }
+        System.out.println();
+        System.out.println("Test 3");
+        for(Product p : mapCat.get("słodycze")){
+            System.out.println(p.id+" "+p.name+" "+p.category+" "+p.price);
+        }
         }
 }
