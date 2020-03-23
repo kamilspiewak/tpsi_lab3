@@ -119,7 +119,18 @@ public class Tpsi_lab3 {
             ex.printStackTrace();
             }
         
+        //test 1
+        for(Product p : produkty){
+            System.out.println(p.id+"\t"+ p.name+"\t"+p.category+"\t"+p.price);
+        }
         
+        Map<Integer,Product> mapID = new TreeMap();
+        for(Product prod : produkty){
+            mapID.put(Integer.parseInt(prod.id), prod);
+        }
+        
+        //test 2
+        System.out.println(mapID.get(101).name);
         
         
         }
