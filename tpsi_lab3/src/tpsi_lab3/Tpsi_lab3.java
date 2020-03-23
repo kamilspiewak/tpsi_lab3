@@ -5,6 +5,9 @@
  */
 package tpsi_lab3;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -99,7 +102,25 @@ public class Tpsi_lab3 {
            }
         
         //zadanie 3
+        List<Product> produkty = new ArrayList();
+        Map<Integer,Product> mapaPoID = new TreeMap();
+        try(BufferedReader in = new BufferedReader(new FileReader("produkty.txt"))) {
+
+            String s = in.readLine();
+
+                while(s!=null) {
+                    
+                    String[] pola = s.split(";");
+                    produkty.add(new Product(pola[0],pola[1],Double.parseDouble(pola[3]),pola[2]));
+                    
+                     s = in.readLine();
+                }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            }
         
-    }
-    
+        
+        
+        
+        }
 }
